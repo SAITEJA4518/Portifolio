@@ -114,7 +114,7 @@
             color: #000;
         }
 
-        .project {
+        .project, .certificate {
             border: 1px solid #ccc;
             padding: 15px;
             margin: 15px 0;
@@ -207,6 +207,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certificates</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -251,48 +252,56 @@
         </div>
     </section>
 
+    <section id="certifications">
+        <h2>Certificates</h2>
+        <div class="certificate">
+            <h3>Explore fundamentals of data visualization, Microsoft</h3>
+            <p>Data visualization in Microsoft tools involves transforming raw data into visual formats, such as charts and graphs, to enhance data interpretation and support informed decision-making.</p>
+        </div>
+        <div class="certificate">
+            <h3>Explore fundamentals of real-time analytics, Microsoft</h3>
+            <p>Real-time analytics in Microsoft enables the instant processing and analysis of live data, helping businesses make quick, data-driven decisions as events unfold.</p>
+        </div>
+	<div class="certificate">
+            <h3>Explore fundamentals of large-scale analytics, Microsoft</h3>
+            <p>Large-scale analytics in Microsoft focuses on processing and analyzing vast amounts of data efficiently, empowering organizations to derive insights from complex data sets at scale.</p>
+        </div>
+    </section>
+
     <section id="contact">
         <h2>Contact Me</h2>
         <form action="send_message.php" method="POST">
             <input type="text" id="name" name="name" placeholder="Your Name" required>
             <input type="email" id="email" name="email" placeholder="Your Email" required>
             <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
+            <button type="submit">Send Message</button>
         </form>
     </section>
 
     <footer>
         <div class="social-links">
             <a href="https://github.com/SAITEJA4518" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
             </a>
-            <a href="https://www.linkedin.com/in/saitejagundeti45/" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn">
-            </a>
-            <a href="https://www.instagram.com/_saiteja45_/" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-            </a>
-            <a href="https://wa.me/9032448933" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            <a href="https://www.linkedin.com/in/saiteja-gundeti" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
             </a>
         </div>
         <p>&copy; 2024 Saiteja Gundeti. All rights reserved.</p>
     </footer>
 
     <script>
-        function revealSections() {
-            const sections = document.querySelectorAll('section');
-            const scrollPosition = window.scrollY + window.innerHeight;
-
-            sections.forEach(section => {
-                if (section.offsetTop < scrollPosition) {
-                    section.classList.add('visible');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', revealSections);
-        document.addEventListener('DOMContentLoaded', revealSections);
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll("section");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.5 });
+            sections.forEach(section => observer.observe(section));
+        });
     </script>
 </body>
 </html>
